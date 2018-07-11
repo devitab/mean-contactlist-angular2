@@ -1,8 +1,9 @@
+<input type="text" placeholder="Search" ng-model="search" />
+
 <div class="row">
   <div class="col-md-5">
     <h2>Contacts</h2>
-      <input type="text"  id="search" onkeyup="searchstudent()"/>
-    <ul id="students-out" class="list-group">
+    <ul class="list-group |filter: search" >
       <li class="list-group-item"
         *ngFor="let contact of contacts"
         (click)="selectContact(contact)"
@@ -20,17 +21,4 @@
       [deleteHandler]="deleteContact">
     </contact-details>
   </div>
-     <script type="text/javascript">
-          function searchstudent(){
-             var searchvalue= document.getElementById('search').value;
-             var from_s = document.getElementById('students-out');
-             for (var i=0;i<from_s.options.length-1;i++) {
-                var st=from_s.options[i].text;
-                  if(st.search(searchvalue)>-1) {
-                  var temp  = from_s.options[i];
-                 from_s.add(temp, from_s.options[0]);
-                 }            
-             }
-          }
-</script>
 </div>
