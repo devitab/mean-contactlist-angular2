@@ -1,14 +1,17 @@
-<input type="text" placeholder="Search" ng-model="search" />
+
 
 <div class="row">
   <div class="col-md-5">
     <h2>Contacts</h2>
-    <ul class="list-group |filter: search" >
-      <li class="list-group-item | filter:search"
+    <ul class="list-group">
+      <li class="list-group-item"
         *ngFor="let contact of contacts"
         (click)="selectContact(contact)"
         [class.active]="contact === selectedContact">
         {{contact.name}}
+          <input class="form-control" placeholder="Seach Your Contacts" type="text" ng-model="searchText">
+            <contact class="list-group-item" ng-repeat="let contact of contacts| orderBy: 'name' | filter: searchText "></contact>
+          
       </li>
     </ul>
     <button class="btn btn-warning" (click)="createNewContact()">New</button>
