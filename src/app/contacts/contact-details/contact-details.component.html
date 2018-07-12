@@ -22,10 +22,11 @@
       <label for="contact-phone-work">Work</label>
       <input class="form-control" name="contact-phone-work" [(ngModel)]="contact.phone.work" placeholder="0123456789"/>
     </div>
-      <textarea rows="3" cols="50"> <div class="form-group">
-      <label for="contact-note">Notes</label>
-      <input class="form-control" name="contact-note" [(ngModel)]="contact.note" placeholder="TypeNote"/>
-    </div></textarea>
+      <label for="contact-note">No2tes</label>
+       <div class="form-group"><textarea rows="3" cols="50" class="form-control" name="contact-note" [(ngModel)]="contact.note" placeholder="TypeNote">
+            <label for="contact-note">Notes</label>
+           </textarea>
+    </div>
     <button class="btn btn-primary" *ngIf="!contact._id" (click)="createContact(contact)">Create</button>
     <button class="btn btn-info" *ngIf="contact._id" (click)="updateContact(contact)">Update</button>
     <button class="btn btn-danger" *ngIf="contact._id" (click)="deleteContact(contact._id)">Delete</button>
